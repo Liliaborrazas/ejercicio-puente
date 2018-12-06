@@ -2,7 +2,6 @@
 
 const user = document.querySelector('#user');
 const btn = document.querySelector('.btn');
-const list = document.querySelector('.list');
 
 
 function getUsername() {
@@ -11,13 +10,30 @@ function getUsername() {
     fetch(`https://api.github.com/users/{username}`)
      .then(response => response.json())
        .then(data => { 
-           list.innerHTML =`<li>data.name</li>` ;
+           console.log(data)
+           const list = document.querySelector('.list');
+           const name = data.name
 
 
        });
 
     
 }
+// fetch('https://dog.ceo/api/breeds/list')
+//   .then(response => response.json())
+//   .then(data => {
+//     console.log('Breeds data response: ', data);
+
+//     const ul = document.querySelector('ul');
+//     const breeds = data.message;
+//     let ulContent = '';
+
+//     for (const breed of breeds) {
+//       const breedContent = `<li>${breed}</li>`;
+//       ulContent += breedContent;
+//     }
+//     ul.innerHTML = ulContent;
+//   });
 
 btn.addEventListener('click', getUsername)
 
