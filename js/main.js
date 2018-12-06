@@ -5,13 +5,21 @@ const btn = document.querySelector('.btn');
 const list = document.querySelector('.list');
 
 
-function handler(){
-    const userInput = user.value;
-    console.log(userInput)
+function getUsername() {
+    const username = user.value;
+    console.log(username);
+    fetch(`https://api.github.com/users/{username}`)
+     .then(response => response.json())
+       .then(data => { 
+           list.innerHTML =`<li>data.name</li>` ;
 
+
+       });
+
+    
 }
 
-btn.addEventListener('click', handler)
+btn.addEventListener('click', getUsername)
 
 // 2. Al hacer clic en el botón de buscar se debe:
 
