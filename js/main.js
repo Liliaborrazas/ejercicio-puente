@@ -10,9 +10,13 @@ function getUsername() {
     fetch(`https://api.github.com/users/${username}`)
      .then(response => response.json())
        .then(data => { 
-           console.log(data.name)
-           const list = document.querySelector('.list');
-           const name = data.name
+        //    const list = document.querySelector('.list');
+           const name = data.name.split(" ", 1);
+           console.log(name);
+           
+          
+           
+          
 
 
        });
