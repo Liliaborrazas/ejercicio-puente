@@ -17,7 +17,7 @@ function getUsername() {
                if(name[i] === ' '){
                    i = name.length;
                }else{
-                const letra = `<li>${name[i]}</li>`;
+                const letra = `<li class="item">${name[i]}</li>`;
                 list.innerHTML += letra;
                };
            };
