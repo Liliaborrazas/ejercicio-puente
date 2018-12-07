@@ -10,15 +10,21 @@ function getUsername() {
     fetch(`https://api.github.com/users/${username}`)
      .then(response => response.json())
        .then(data => { 
-        //    const list = document.querySelector('.list');
            const name = data.name.split(" ", 1);
            console.log(name);
+        //    const userName = name.split(" ");
+        //    console.log(userName);
            
+           const list = document.querySelector('.list');
+           let ulContent = '';
+
+           for(let i=0; i<name.length; i++){
+               const nameContent = `<li>${name}</li>`
+               ulContent += nameContent[i];
+           }
+           list.innerHTML = ulContent;
           
            
-          
-
-
        });
 
     
