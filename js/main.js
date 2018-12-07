@@ -2,6 +2,7 @@
 
 const user = document.querySelector('#user');
 const btn = document.querySelector('.btn');
+const list = document.querySelector('.list');
 
 
 function getUsername() {
@@ -10,71 +11,17 @@ function getUsername() {
     fetch(`https://api.github.com/users/${username}`)
      .then(response => response.json())
        .then(data => { 
-           const name = data.name.split(" ", 1);
-           console.log(name);
-        //    const userName = name.split(" ");
-        //    console.log(userName);
-           
-           const list = document.querySelector('.list');
-           let ulContent = '';
-
-           for(let i=0; i<name.length; i++){
-               const nameContent = `<li>${name}</li>`
-               ulContent += nameContent[i];
-           }
-           list.innerHTML = ulContent;
-          
-           
-       });
-
-    
-}
-// fetch('https://dog.ceo/api/breeds/list')
-//   .then(response => response.json())
-//   .then(data => {
-//     console.log('Breeds data response: ', data);
-
-//     const ul = document.querySelector('ul');
-//     const breeds = data.message;
-//     let ulContent = '';
-
-//     for (const breed of breeds) {
-//       const breedContent = `<li>${breed}</li>`;
-//       ulContent += breedContent;
-//     }
-//     ul.innerHTML = ulContent;
-//   });
-
-btn.addEventListener('click', getUsername)
-
-// 2. Al hacer clic en el botón de buscar se debe:
-
-// 1. Recoger el nick que haya escrito la usuaria en el campo
-// 2. Componer la url para hacer la petición según indiquen en la documentación 
-// de la API 
-// 3. Hacer la petición
-// 4. Acceder al nombre completo de la criatura
-// 5. Seleccionar solo el nombre descartando los apellidos y espacios ﴾si los hubiese﴿
-// 6. Escribir cada letra del nombre, por orden, en nuestra página usando una lista ordenada
-
-
-
-
-// 3. Una vez echo esto podemos animarnos con los estilos para intentar acercarnos a la
-//  propuesta gráfica que nos dan.
-// Pistas que nos pueden ayudar en el camino
-// Hay una serie de métodos que nos van a hacer la vida más fácil. Uno de ellos es 
-// .split() aquí lo explican superbien. Ademas recordad que .length nos sirve tanto para arrays como para cadenas y que sabiendo la longitud de una cadena puedo acceder a cada uno de los caracteres como si fuese un array ﴾casi﴿.
-// FAQ
-// ¿Podemos hacerlo en grupos pequeños? Sí
-// Bonus
-// –Buah, esto es muy fácil, me lo he ventilado en naíca y me queda medio puente
-//  todavía. ¿Qué hago?
-// Venga, si alguien lo acaba todo y el código está indentado y ordenado como una
-//  patena de las buenas podemos intentar controlar errores:
-// Qué pasa si la usuaria no existe?
-// Qué pasa si la usuaria no tiene puesto el nombre completo?
-// Al turrrón!
-//   Recordad que cuando programamos tenemos que huir de los casos específicos: esto
-//    tiene que funcionar para cualquier usuario válido de GitHub.
-    
+           const name = data.name;
+           name.split(' ');
+           for(let i = 0; i<name.length; i++){
+               if(name[i] === ' '){
+                   i = name.length;
+               }else{
+                const letra = `<li>${name[i]}</li>`;
+                list.innerHTML += letra;
+               };
+           };
+        });
+    };
+        
+btn.addEventListener('click', getUsername);
