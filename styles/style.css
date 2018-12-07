@@ -1,31 +1,36 @@
 body{
     margin: 0;
-    background: pink;
- 
+    background: pink; 
 }
 .container{
     margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+    text-align: center;
+}
+.input{
+    margin-top: 30px;
+    
 }
 .write{
-    display: block;
     color: purple;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 25px;
-    
+    font-size: 25px;   
 }
 .user{
-
     height: 30px;
-    width: 300px;
-    
+    width: 300px;    
 }
 .btn{
     background: purple;
     color: white;
     padding: 10px 30px;
     font-size: 15px;
+}
+.list{
+    list-style: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 50px;
+    color: purple;
+    padding:  20px; 
+    display: flex;
+    justify-content: space-around;
 }
