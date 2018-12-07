@@ -7,10 +7,10 @@ const btn = document.querySelector('.btn');
 function getUsername() {
     const username = user.value;
     console.log(username);
-    fetch(`https://api.github.com/users/{username}`)
+    fetch(`https://api.github.com/users/${username}`)
      .then(response => response.json())
        .then(data => { 
-           console.log(data)
+           console.log(data.name)
            const list = document.querySelector('.list');
            const name = data.name
 
